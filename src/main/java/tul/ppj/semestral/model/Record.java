@@ -2,9 +2,9 @@ package tul.ppj.semestral.model;
 
 import java.time.LocalDateTime;
 import jakarta.persistence.*;
-import lombok.Data;
+//import lombok.Data;
 
-@Data
+//@Data
 @Entity
 @Table(name = "records")
 public class Record {

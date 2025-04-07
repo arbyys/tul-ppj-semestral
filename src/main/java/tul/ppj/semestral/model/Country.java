@@ -1,9 +1,9 @@
 package tul.ppj.semestral.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+//import lombok.Data;
 
-@Data
+//@Data
 @Entity
 @Table(name = "countries")
 public class Country {

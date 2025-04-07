@@ -2,9 +2,9 @@ package tul.ppj.semestral.model;
 
 import java.util.List;
 import jakarta.persistence.*;
-import lombok.Data;
+//import lombok.Data;
 
-@Data
+//@Data
 @Entity
 @Table(name = "cities")
 public class City {
