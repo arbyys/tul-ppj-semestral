@@ -8,9 +8,61 @@ Cílem projektu je vytvořit aplikaci pro ukládání a zobrazování meteorolog
 3. Verzování na GitHubu
 
 ## Datový model (persistence)
-- Stát (MySQL)
--  Město (MySQL)
--  Měření pro město (MySQL)
+- Stát (MySQL) - soubor Country.java
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+
+  @Column(nullable = false, unique = true, length = 100)
+  private String name;
+
+  @Column(nullable = true, length = 3)
+  private String isoCode;
+
+  @Column(nullable = true)
+  private Long population;
+
+  @Column(nullable = true)
+  private String continent;
+-  Město (MySQL) - soubor City.java
+-     @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+
+  @Column(nullable = false, length = 100)
+  private String name;
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "country_id", nullable = false)
+  private Country country;
+
+  @Column(nullable = true)
+  private Long population;
+
+  @Column(nullable = true, precision = 10, scale = 6)
+  private Double latitude;
+
+  @Column(nullable = true, precision = 10, scale = 6)
+  private Double longitude;
+
+  @OneToMany(mappedBy = "city")
+  private List<Record> records;
+-  Měření pro město (MySQL) - soubor Record.java
+-     @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+
+  private double min_temperature;
+  private double max_temperature;
+  private int pressure;
+  private int humidity;
+  private double wind_speed;
+  private int wind_deg;
+
+  private LocalDateTime timestamp;
+
+  @ManyToOne
+  private City city;
 
 ## API
 Aplikace bude poskytovat REST API pro přímou komunikaci.

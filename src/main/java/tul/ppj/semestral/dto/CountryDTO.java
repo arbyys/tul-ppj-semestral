@@ -1,33 +1,18 @@
-package tul.ppj.semestral.model;
+package tul.ppj.semestral.dto;
 
-import jakarta.persistence.*;
-//import lombok.Data;
-
-//@Data
-@Entity
-@Table(name = "countries")
-public class Country {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CountryDTO {
     private Long id;
-
-    @Column(nullable = false, unique = true, length = 100)
     private String name;
-
-    @Column(nullable = true, length = 3)
     private String isoCode;
-
-    @Column(nullable = true)
     private Long population;
-
-    @Column(nullable = true)
     private String continent;
 
     // Constructors
-    public Country() {
+    public CountryDTO() {
     }
 
-    public Country(String name, String isoCode, Long population, String continent) {
+    public CountryDTO(Long id, String name, String isoCode, Long population, String continent) {
+        this.id = id;
         this.name = name;
         this.isoCode = isoCode;
         this.population = population;
