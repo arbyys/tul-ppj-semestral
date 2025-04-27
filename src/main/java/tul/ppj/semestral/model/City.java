@@ -23,10 +23,10 @@ public class City {
     @Column(nullable = true)
     private Long population;
 
-    @Column(nullable = true, precision = 10, scale = 6)
+    @Column(nullable = true)
     private Double latitude;
 
-    @Column(nullable = true, precision = 10, scale = 6)
+    @Column(nullable = true)
     private Double longitude;
 
     @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, orphanRemoval = true)
