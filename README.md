@@ -20,6 +20,9 @@ Aplikace bude obsahovat REST rozhraní pro přidávání, editaci a mazání st�
 
 ## Testování
 Součástí řešení budou testy pro všechny operace volané přes REST API.
+```
+mvn test
+```
 
 ## Konfigurace
 Musí být možno provádět externí konfiguraci – tj. veškerá konfigurace do properties souborů.
