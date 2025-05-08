@@ -23585,3 +23585,91 @@ java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
 13:22:00.362 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 13:22:00.364 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 13:22:00.376 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+13:22:47.553 [restartedMain] INFO  tul.ppj.semestral.Main - Starting Main using Java 24 with PID 10584 (D:\DruhaPlocha\programovani\tul\tul-ppj-semestral\target\classes started by arbys in D:\DruhaPlocha\programovani\tul\tul-ppj-semestral)
+13:22:47.554 [restartedMain] DEBUG tul.ppj.semestral.Main - Running with Spring Boot v3.4.4, Spring v6.2.5
+13:22:47.554 [restartedMain] INFO  tul.ppj.semestral.Main - The following 1 profile is active: "devel"
+13:22:47.598 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+13:22:47.599 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+13:22:48.037 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13:22:48.078 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35 ms. Found 3 JPA repository interfaces.
+13:22:48.451 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+13:22:48.462 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+13:22:48.463 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+13:22:48.463 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.39]
+13:22:48.500 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13:22:48.500 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 901 ms
+13:22:48.566 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13:22:48.889 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@b17cc99
+13:22:48.891 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13:22:48.957 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13:22:48.992 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.11.Final
+13:22:49.019 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+13:22:49.224 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+13:22:49.279 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+13:22:49.288 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.42
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+13:22:49.946 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+13:22:50.001 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13:22:50.263 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+13:22:51.228 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13:22:51.290 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 24 mappings in 'requestMappingHandlerMapping'
+13:22:51.319 [restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+13:22:51.341 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+13:22:51.370 [restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+13:22:51.415 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/semestral'
+13:22:51.468 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+13:22:51.485 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+13:22:51.499 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+13:22:51.506 [restartedMain] INFO  tul.ppj.semestral.Main - Started Main in 4.216 seconds (process running for 4.861)
+13:23:02.207 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13:23:02.207 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13:23:02.208 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+13:23:02.208 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+13:23:02.208 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+13:23:02.208 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4ae3032b
+13:23:02.209 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@2bbaaf27
+13:23:02.209 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+13:23:02.209 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+13:23:02.215 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/records/city/2/statistics/week", parameters={}
+13:23:02.225 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to tul.ppj.semestral.controller.RecordController#getStatisticsForCity(Long, String)
+13:23:02.249 [http-nio-8080-exec-1] INFO  t.p.s.controller.RecordController - REST request to get week statistics for city id: 2
+13:23:02.249 [http-nio-8080-exec-1] INFO  t.p.semestral.service.RecordService - Calculating week statistics for city id: 2
+13:23:02.361 [http-nio-8080-exec-1] INFO  t.p.semestral.service.RecordService - Calculated statistics: minTemp=13.172121049688485, maxTemp=16.990586939780417, pressure=1014.875, humidity=55.5, windSpeed=4.82696356723135
+13:23:02.395 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+13:23:02.396 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [tul.ppj.semestral.dto.WeatherStatisticsDTO@b06d548]
+13:23:02.409 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+13:23:05.730 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/records/city/3/statistics/week", parameters={}
+13:23:05.731 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to tul.ppj.semestral.controller.RecordController#getStatisticsForCity(Long, String)
+13:23:05.731 [http-nio-8080-exec-3] INFO  t.p.s.controller.RecordController - REST request to get week statistics for city id: 3
+13:23:05.731 [http-nio-8080-exec-3] INFO  t.p.semestral.service.RecordService - Calculating week statistics for city id: 3
+13:23:05.739 [http-nio-8080-exec-3] WARN  t.p.semestral.service.RecordService - City with id 3 not found
+13:23:05.740 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+13:23:05.740 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Nothing to write: null body
+13:23:05.740 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 404 NOT_FOUND
+13:23:08.272 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/records/city/2/statistics/week", parameters={}
+13:23:08.272 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to tul.ppj.semestral.controller.RecordController#getStatisticsForCity(Long, String)
+13:23:08.273 [http-nio-8080-exec-2] INFO  t.p.s.controller.RecordController - REST request to get week statistics for city id: 2
+13:23:08.273 [http-nio-8080-exec-2] INFO  t.p.semestral.service.RecordService - Calculating week statistics for city id: 2
+13:23:08.283 [http-nio-8080-exec-2] INFO  t.p.semestral.service.RecordService - Calculated statistics: minTemp=13.172121049688485, maxTemp=16.990586939780417, pressure=1014.875, humidity=55.5, windSpeed=4.82696356723135
+13:23:08.284 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+13:23:08.284 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [tul.ppj.semestral.dto.WeatherStatisticsDTO@6886e5e2]
+13:23:08.284 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+13:23:10.793 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/records/city/2/statistics/twoweeks", parameters={}
+13:23:10.793 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to tul.ppj.semestral.controller.RecordController#getStatisticsForCity(Long, String)
+13:23:10.794 [http-nio-8080-exec-5] INFO  t.p.s.controller.RecordController - REST request to get twoweeks statistics for city id: 2
+13:23:10.794 [http-nio-8080-exec-5] INFO  t.p.semestral.service.RecordService - Calculating twoweeks statistics for city id: 2
+13:23:10.804 [http-nio-8080-exec-5] INFO  t.p.semestral.service.RecordService - Calculated statistics: minTemp=13.172121049688485, maxTemp=16.990586939780417, pressure=1014.875, humidity=55.5, windSpeed=4.82696356723135
+13:23:10.804 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+13:23:10.804 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [tul.ppj.semestral.dto.WeatherStatisticsDTO@74879bc1]
+13:23:10.805 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+13:25:48.015 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+13:25:48.019 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+13:25:48.022 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13:25:48.024 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13:25:48.034 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
