@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "b41f3e6b-2714-44b5-b3a5-29fafac89eb5",
+		"name": "City",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13184198",
+		"_collection_link": "https://interstellar-escape-207817.postman.co/workspace/tul-ppj~4c031b29-90b8-43ce-840e-ea9d1da28fd5/collection/13184198-b41f3e6b-2714-44b5-b3a5-29fafac89eb5?action=share&source=collection_link&creator=13184198"
+	},
+	"item": [
+		{
+			"name": "/api/cities",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Prague\",\r\n  \"countryId\": 1,\r\n  \"population\": 1300000,\r\n  \"latitude\": 50.0755,\r\n  \"longitude\": 14.4378\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/cities",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/cities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/cities/country/<id>",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/cities/country/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cities",
+						"country",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/cities/country/name/<name>",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/cities/country/name/Czech%20Republic",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cities",
+						"country",
+						"name",
+						"Czech%20Republic"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/cities/<id>",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Prague\",\r\n  \"countryId\": 1,\r\n  \"population\": 1350000,\r\n  \"latitude\": 50.0755,\r\n  \"longitude\": 14.4378\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cities/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cities",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/cities/<id>",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/cities/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cities",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

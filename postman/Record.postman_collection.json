@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "5f5d5248-52cb-4ff9-b1f4-4f3979c0b6bc",
+		"name": "Record",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13184198",
+		"_collection_link": "https://interstellar-escape-207817.postman.co/workspace/tul-ppj~4c031b29-90b8-43ce-840e-ea9d1da28fd5/collection/13184198-5f5d5248-52cb-4ff9-b1f4-4f3979c0b6bc?action=share&source=collection_link&creator=13184198"
+	},
+	"item": [
+		{
+			"name": "/api/records/fetch/city/<id>",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/records/fetch/city/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"records",
+						"fetch",
+						"city",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/records",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/records",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"records"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/records/<id>",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/records/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"records",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/records/city/<id>/latest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/records/city/1/latest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"records",
+						"city",
+						"1",
+						"latest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/records/city/<id>",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/records/city/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"records",
+						"city",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/records/city/<id>/statistics/<period>",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/records/city/2/statistics/day",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"records",
+						"city",
+						"2",
+						"statistics",
+						"day"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/records",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"minTemperature\": 10.5,\r\n  \"maxTemperature\": 22.3,\r\n  \"pressure\": 1013,\r\n  \"humidity\": 65,\r\n  \"windSpeed\": 5.2,\r\n  \"windDeg\": 180,\r\n  \"cityId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/records",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"records"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
