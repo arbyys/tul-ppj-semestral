@@ -9,7 +9,7 @@ public class CityDTO {
     private Double latitude;
     private Double longitude;
 
-    // Constructors
+    // constructors
     public CityDTO() {
     }
 
@@ -23,7 +23,7 @@ public class CityDTO {
         this.longitude = longitude;
     }
 
-    // Getters and Setters
+    // getters and setters
     public Long getId() {
         return id;
     }

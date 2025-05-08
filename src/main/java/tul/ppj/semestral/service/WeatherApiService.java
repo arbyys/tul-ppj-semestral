@@ -48,7 +48,7 @@ public class WeatherApiService {
 
         City city = cityOpt.get();
 
-        // Check if API key is available
+        // check if API key is available, mock otherwise
         if (apiKey == null || apiKey.isEmpty()) {
             logger.warn("No API key available, generating random weather data");
             return generateRandomWeatherData(city);
@@ -86,7 +86,7 @@ public class WeatherApiService {
     }
 
     /**
-     * Generates random weather data for testing purposes when API key is not available
+     * generates mock random weather data for testing when API key isn't available
      */
     private Optional<RecordDTO> generateRandomWeatherData(City city) {
         logger.info("Generating random weather data for city: {}", city.getName());
@@ -95,8 +95,8 @@ public class WeatherApiService {
         recordDTO.setCityId(city.getId());
         recordDTO.setCityName(city.getName());
 
-        // Generate realistic random weather data
-        double baseTemp = 15.0 + (random.nextDouble() * 10.0 - 5.0); // Base temperature around 15°C ±5°C
+        // generate realistic random weather data
+        double baseTemp = 15.0 + (random.nextDouble() * 10.0 - 5.0); // base temperature around 15°C ±5°C
         recordDTO.setMinTemperature(baseTemp - random.nextDouble() * 5.0);
         recordDTO.setMaxTemperature(baseTemp + random.nextDouble() * 5.0);
         recordDTO.setPressure(1000 + random.nextInt(30));
@@ -108,7 +108,7 @@ public class WeatherApiService {
         return recordService.createRecord(recordDTO);
     }
 
-    // Inner classes to map the OpenWeatherMap API response
+    // classes to map the OpenWeatherMap API response
     private static class WeatherApiResponse {
         private MainData main;
         private WindData wind;

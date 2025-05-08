@@ -23,7 +23,7 @@ public class Country {
     @Column(nullable = true)
     private String continent;
 
-    // Constructors
+    // constructors
     public Country() {
     }
 
@@ -34,7 +34,7 @@ public class Country {
         this.continent = continent;
     }
 
-    // Getters and Setters
+    // getters and setters
     public Long getId() {
         return id;
     }

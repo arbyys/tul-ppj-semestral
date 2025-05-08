@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Service
 public class CountryService {
     private static final Logger logger = LoggerFactory.getLogger(CountryService.class);
-    
+
     private final CountryRepository countryRepository;
 
     @Autowired
@@ -55,7 +55,7 @@ public class CountryService {
             logger.warn("Country with id {} not found", id);
             return Optional.empty();
         }
-        
+
         Country country = convertToEntity(countryDTO);
         country.setId(id);
         Country updatedCountry = countryRepository.save(country);
@@ -68,12 +68,12 @@ public class CountryService {
             logger.warn("Country with id {} not found", id);
             return false;
         }
-        
+
         countryRepository.deleteById(id);
         return true;
     }
 
-    // Helper methods for DTO conversion
+    // helper methods for DTO conversion
     private CountryDTO convertToDTO(Country country) {
         return new CountryDTO(
                 country.getId(),

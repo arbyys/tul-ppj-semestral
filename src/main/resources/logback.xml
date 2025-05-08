@@ -19,7 +19,6 @@
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
     </root>
-    <!--<logger name="org.springframework" level="WARN" />-->
 
     <springProfile name="devel">
         <logger name="ppj" level="DEBUG" />

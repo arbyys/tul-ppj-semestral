@@ -29,4 +29,12 @@ public interface RecordRepository extends JpaRepository<Record, Long> {
            @Param("period") String period,
            @Param("startDate") LocalDateTime startDate,
            @Param("endDate") LocalDateTime endDate);
+
+    @Query("SELECT AVG(r.min_temperature) as avgMinTemp, AVG(r.max_temperature) as avgMaxTemp, " +
+           "AVG(r.pressure) as avgPressure, AVG(r.humidity) as avgHumidity, " +
+           "AVG(r.wind_speed) as avgWindSpeed " +
+           "FROM Record r WHERE r.city.id = :cityId AND r.timestamp BETWEEN :startDate AND :endDate")
+    Number[] getAveragesByCityIdAndDateRange(@Param("cityId") Long cityId,
+                                          @Param("startDate") LocalDateTime startDate,
+                                          @Param("endDate") LocalDateTime endDate);
 }

@@ -37,3 +37,6 @@ Data je možné získávat z libovolného veřejně dostupného API, například
 ```
 docker run --name mysql-semestral -e MYSQL_ROOT_PASSWORD=heslo -e MYSQL_DATABASE=semestral -p 3306:3306 -d mysql:8.0
 ```
+
+## Proměnné prostředí
+- Je nutné mít v systému nastavenou proměnnou prostředí (env variable) `WEATHER_API_KEY` s hodnotou platného OpenWeatherMap API klíče.

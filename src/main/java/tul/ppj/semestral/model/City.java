@@ -32,7 +32,7 @@ public class City {
     @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Record> records = new ArrayList<>();
 
-    // Constructors
+    // constructors
     public City() {
     }
 
@@ -44,7 +44,7 @@ public class City {
         this.longitude = longitude;
     }
 
-    // Getters and Setters
+    // getters and setters
     public Long getId() {
         return id;
     }
@@ -101,13 +101,13 @@ public class City {
         this.records = records;
     }
 
-    // Helper method to add a record
+    // helper method to add a record
     public void addRecord(Record record) {
         records.add(record);
         record.setCity(this);
     }
 
-    // Helper method to remove a record
+    // helper method to remove a record
     public void removeRecord(Record record) {
         records.remove(record);
         record.setCity(null);

@@ -7,7 +7,7 @@ public class CountryDTO {
     private Long population;
     private String continent;
 
-    // Constructors
+    // constructors
     public CountryDTO() {
     }
 
@@ -19,7 +19,7 @@ public class CountryDTO {
         this.continent = continent;
     }
 
-    // Getters and Setters
+    // getters and setters
     public Long getId() {
         return id;
     }

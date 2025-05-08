@@ -10,7 +10,7 @@ public class WeatherStatisticsDTO {
     private double avgHumidity;
     private double avgWindSpeed;
 
-    // Constructors
+    // constructors
     public WeatherStatisticsDTO() {
     }
 
@@ -26,7 +26,7 @@ public class WeatherStatisticsDTO {
         this.avgWindSpeed = avgWindSpeed;
     }
 
-    // Getters and Setters
+    // getters and setters
     public Long getCityId() {
         return cityId;
     }

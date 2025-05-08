@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @Service
 public class CityService {
     private static final Logger logger = LoggerFactory.getLogger(CityService.class);
-    
+
     private final CityRepository cityRepository;
     private final CountryRepository countryRepository;
 
@@ -56,13 +56,13 @@ public class CityService {
 
     public Optional<CityDTO> createCity(CityDTO cityDTO) {
         logger.info("Creating new city: {} in country id: {}", cityDTO.getName(), cityDTO.getCountryId());
-        
+
         Optional<Country> countryOpt = countryRepository.findById(cityDTO.getCountryId());
         if (countryOpt.isEmpty()) {
             logger.warn("Country with id {} not found", cityDTO.getCountryId());
             return Optional.empty();
         }
-        
+
         City city = convertToEntity(cityDTO, countryOpt.get());
         City savedCity = cityRepository.save(city);
         return Optional.of(convertToDTO(savedCity));
@@ -74,13 +74,13 @@ public class CityService {
             logger.warn("City with id {} not found", id);
             return Optional.empty();
         }
-        
+
         Optional<Country> countryOpt = countryRepository.findById(cityDTO.getCountryId());
         if (countryOpt.isEmpty()) {
             logger.warn("Country with id {} not found", cityDTO.getCountryId());
             return Optional.empty();
         }
-        
+
         City city = convertToEntity(cityDTO, countryOpt.get());
         city.setId(id);
         City updatedCity = cityRepository.save(city);
@@ -93,12 +93,12 @@ public class CityService {
             logger.warn("City with id {} not found", id);
             return false;
         }
-        
+
         cityRepository.deleteById(id);
         return true;
     }
 
-    // Helper methods for DTO conversion
+    // helper methods for DTO conversion
     private CityDTO convertToDTO(City city) {
         return new CityDTO(
                 city.getId(),
@@ -113,7 +113,7 @@ public class CityService {
 
     private City convertToEntity(CityDTO cityDTO, Country country) {
         City city = new City();
-        // Skip setting ID for new entities
+        // skip setting ID for new entities
         if (cityDTO.getId() != null) {
             city.setId(cityDTO.getId());
         }

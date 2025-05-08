@@ -25,7 +25,7 @@ public class Record {
     @JoinColumn(name = "city_id")
     private City city;
 
-    // Constructors
+    // constructors
     public Record() {
         this.timestamp = LocalDateTime.now();
     }
@@ -42,7 +42,7 @@ public class Record {
         this.city = city;
     }
 
-    // Getters and Setters
+    // getters and setters
     public Long getId() {
         return id;
     }

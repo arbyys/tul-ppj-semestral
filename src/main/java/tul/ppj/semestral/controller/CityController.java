@@ -25,14 +25,14 @@ public class CityController {
 
     @GetMapping
     public ResponseEntity<List<CityDTO>> getAllCities() {
-        logger.info("REST request to get all cities");
+        logger.info("HTTP request to get all cities");
         List<CityDTO> cities = cityService.getAllCities();
         return ResponseEntity.ok(cities);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<CityDTO> getCityById(@PathVariable Long id) {
-        logger.info("REST request to get city with id: {}", id);
+        logger.info("HTTP request to get city with id: {}", id);
         return cityService.getCityById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -40,21 +40,21 @@ public class CityController {
 
     @GetMapping("/country/{countryId}")
     public ResponseEntity<List<CityDTO>> getCitiesByCountryId(@PathVariable Long countryId) {
-        logger.info("REST request to get cities for country id: {}", countryId);
+        logger.info("HTTP request to get cities for country id: {}", countryId);
         List<CityDTO> cities = cityService.getCitiesByCountryId(countryId);
         return ResponseEntity.ok(cities);
     }
 
     @GetMapping("/country/name/{countryName}")
     public ResponseEntity<List<CityDTO>> getCitiesByCountryName(@PathVariable String countryName) {
-        logger.info("REST request to get cities for country name: {}", countryName);
+        logger.info("HTTP request to get cities for country name: {}", countryName);
         List<CityDTO> cities = cityService.getCitiesByCountryName(countryName);
         return ResponseEntity.ok(cities);
     }
 
     @PostMapping
     public ResponseEntity<CityDTO> createCity(@RequestBody CityDTO cityDTO) {
-        logger.info("REST request to create city: {} in country id: {}", cityDTO.getName(), cityDTO.getCountryId());
+        logger.info("HTTP request to create city: {} in country id: {}", cityDTO.getName(), cityDTO.getCountryId());
         return cityService.createCity(cityDTO)
                 .map(city -> ResponseEntity.status(HttpStatus.CREATED).body(city))
                 .orElse(ResponseEntity.badRequest().build());
@@ -62,7 +62,7 @@ public class CityController {
 
     @PutMapping("/{id}")
     public ResponseEntity<CityDTO> updateCity(@PathVariable Long id, @RequestBody CityDTO cityDTO) {
-        logger.info("REST request to update city with id: {}", id);
+        logger.info("HTTP request to update city with id: {}", id);
         return cityService.updateCity(id, cityDTO)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -70,7 +70,7 @@ public class CityController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCity(@PathVariable Long id) {
-        logger.info("REST request to delete city with id: {}", id);
+        logger.info("HTTP request to delete city with id: {}", id);
         boolean deleted = cityService.deleteCity(id);
         return deleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }

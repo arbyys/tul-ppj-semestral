@@ -25,14 +25,14 @@ public class CountryController {
 
     @GetMapping
     public ResponseEntity<List<CountryDTO>> getAllCountries() {
-        logger.info("REST request to get all countries");
+        logger.info("HTTP request to get all countries");
         List<CountryDTO> countries = countryService.getAllCountries();
         return ResponseEntity.ok(countries);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<CountryDTO> getCountryById(@PathVariable Long id) {
-        logger.info("REST request to get country with id: {}", id);
+        logger.info("HTTP request to get country with id: {}", id);
         return countryService.getCountryById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -40,7 +40,7 @@ public class CountryController {
 
     @GetMapping("/name/{name}")
     public ResponseEntity<CountryDTO> getCountryByName(@PathVariable String name) {
-        logger.info("REST request to get country with name: {}", name);
+        logger.info("HTTP request to get country with name: {}", name);
         return countryService.getCountryByName(name)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -48,14 +48,14 @@ public class CountryController {
 
     @PostMapping
     public ResponseEntity<CountryDTO> createCountry(@RequestBody CountryDTO countryDTO) {
-        logger.info("REST request to create country: {}", countryDTO.getName());
+        logger.info("HTTP request to create country: {}", countryDTO.getName());
         CountryDTO createdCountry = countryService.createCountry(countryDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdCountry);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<CountryDTO> updateCountry(@PathVariable Long id, @RequestBody CountryDTO countryDTO) {
-        logger.info("REST request to update country with id: {}", id);
+        logger.info("HTTP request to update country with id: {}", id);
         return countryService.updateCountry(id, countryDTO)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -63,7 +63,7 @@ public class CountryController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCountry(@PathVariable Long id) {
-        logger.info("REST request to delete country with id: {}", id);
+        logger.info("HTTP request to delete country with id: {}", id);
         boolean deleted = countryService.deleteCountry(id);
         return deleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }

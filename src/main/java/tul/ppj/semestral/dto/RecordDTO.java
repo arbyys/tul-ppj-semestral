@@ -14,7 +14,7 @@ public class RecordDTO {
     private Long cityId;
     private String cityName;
 
-    // Constructors
+    // constructors
     public RecordDTO() {
     }
 
@@ -32,7 +32,7 @@ public class RecordDTO {
         this.cityName = cityName;
     }
 
-    // Getters and Setters
+    // getters and setters
     public Long getId() {
         return id;
     }
