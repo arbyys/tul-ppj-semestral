@@ -18,11 +18,15 @@ public interface RecordRepository extends JpaRepository<Record, Long> {
     @Query("SELECT r FROM Record r WHERE r.city.id = :cityId AND r.timestamp = (SELECT MAX(r2.timestamp) FROM Record r2 WHERE r2.city.id = :cityId)")
     Record findLatestByCityId(@Param("cityId") Long cityId);
 
-    @Query("SELECT AVG(r.min_temperature) as avgMinTemp, AVG(r.max_temperature) as avgMaxTemp, " +
-           "AVG(r.pressure) as avgPressure, AVG(r.humidity) as avgHumidity, " +
-           "AVG(r.wind_speed) as avgWindSpeed " +
-           "FROM Record r WHERE r.city.id = :cityId AND r.timestamp BETWEEN :startDate AND :endDate")
-    Object[] getAveragesByCityIdAndDateRange(@Param("cityId") Long cityId,
-                                          @Param("startDate") LocalDateTime startDate,
-                                          @Param("endDate") LocalDateTime endDate);
+    @Query("SELECT new tul.ppj.semestral.dto.WeatherStatisticsDTO(" +
+           ":cityId, c.name, :period, " +
+           "AVG(r.min_temperature), AVG(r.max_temperature), " +
+           "AVG(r.pressure), AVG(r.humidity), AVG(r.wind_speed)) " +
+           "FROM Record r JOIN r.city c " +
+           "WHERE r.city.id = :cityId AND r.timestamp BETWEEN :startDate AND :endDate")
+    tul.ppj.semestral.dto.WeatherStatisticsDTO getStatistics(
+           @Param("cityId") Long cityId,
+           @Param("period") String period,
+           @Param("startDate") LocalDateTime startDate,
+           @Param("endDate") LocalDateTime endDate);
 }

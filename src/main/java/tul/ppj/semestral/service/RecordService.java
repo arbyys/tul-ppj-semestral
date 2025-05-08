@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 @Service
 public class RecordService {
     private static final Logger logger = LoggerFactory.getLogger(RecordService.class);
-    
+
     private final RecordRepository recordRepository;
     private final CityRepository cityRepository;
 
@@ -57,13 +57,13 @@ public class RecordService {
 
     public Optional<RecordDTO> createRecord(RecordDTO recordDTO) {
         logger.info("Creating new weather record for city id: {}", recordDTO.getCityId());
-        
+
         Optional<City> cityOpt = cityRepository.findById(recordDTO.getCityId());
         if (cityOpt.isEmpty()) {
             logger.warn("City with id {} not found", recordDTO.getCityId());
             return Optional.empty();
         }
-        
+
         Record record = convertToEntity(recordDTO, cityOpt.get());
         Record savedRecord = recordRepository.save(record);
         return Optional.of(convertToDTO(savedRecord));
@@ -75,13 +75,13 @@ public class RecordService {
             logger.warn("Weather record with id {} not found", id);
             return Optional.empty();
         }
-        
+
         Optional<City> cityOpt = cityRepository.findById(recordDTO.getCityId());
         if (cityOpt.isEmpty()) {
             logger.warn("City with id {} not found", recordDTO.getCityId());
             return Optional.empty();
         }
-        
+
         Record record = convertToEntity(recordDTO, cityOpt.get());
         record.setId(id);
         Record updatedRecord = recordRepository.save(record);
@@ -94,23 +94,23 @@ public class RecordService {
             logger.warn("Weather record with id {} not found", id);
             return false;
         }
-        
+
         recordRepository.deleteById(id);
         return true;
     }
 
     public Optional<WeatherStatisticsDTO> getStatisticsForCity(Long cityId, String period) {
         logger.info("Calculating {} statistics for city id: {}", period, cityId);
-        
+
         Optional<City> cityOpt = cityRepository.findById(cityId);
         if (cityOpt.isEmpty()) {
             logger.warn("City with id {} not found", cityId);
             return Optional.empty();
         }
-        
+
         LocalDateTime endDate = LocalDateTime.now();
         LocalDateTime startDate;
-        
+
         switch (period.toLowerCase()) {
             case "day":
                 startDate = endDate.minusDays(1);
@@ -125,26 +125,49 @@ public class RecordService {
                 logger.warn("Invalid period: {}", period);
                 return Optional.empty();
         }
-        
-        Object[] averages = recordRepository.getAveragesByCityIdAndDateRange(cityId, startDate, endDate);
-        
-        if (averages == null || averages.length < 5 || averages[0] == null) {
+
+        // Použij novou metodu, která přímo vrací WeatherStatisticsDTO
+        WeatherStatisticsDTO statistics = recordRepository.getStatistics(cityId, period, startDate, endDate);
+
+        if (statistics == null) {
             logger.warn("No data available for the specified period");
             return Optional.empty();
         }
-        
-        WeatherStatisticsDTO statistics = new WeatherStatisticsDTO(
-                cityId,
-                cityOpt.get().getName(),
-                period,
-                ((Number) averages[0]).doubleValue(),
-                ((Number) averages[1]).doubleValue(),
-                ((Number) averages[2]).doubleValue(),
-                ((Number) averages[3]).doubleValue(),
-                ((Number) averages[4]).doubleValue()
-        );
-        
+
+        logger.info("Calculated statistics: minTemp={}, maxTemp={}, pressure={}, humidity={}, windSpeed={}",
+                statistics.getAvgMinTemperature(), statistics.getAvgMaxTemperature(),
+                statistics.getAvgPressure(), statistics.getAvgHumidity(), statistics.getAvgWindSpeed());
+
         return Optional.of(statistics);
+    }
+
+    /**
+     * Bezpečně převede objekt na double hodnotu
+     * @param obj Objekt k převedení
+     * @return double hodnota, nebo 0.0 pokud převod není možný
+     */
+    private double safeToDouble(Object obj) {
+        if (obj == null) {
+            return 0.0;
+        }
+
+        try {
+            if (obj instanceof Number) {
+                return ((Number) obj).doubleValue();
+            } else if (obj instanceof String) {
+                return Double.parseDouble((String) obj);
+            } else if (obj.getClass().isArray() && obj.getClass().getComponentType().equals(Object.class)) {
+                // Pokud je to pole objektů, vezmi první prvek
+                Object[] array = (Object[]) obj;
+                if (array.length > 0 && array[0] != null) {
+                    return safeToDouble(array[0]);
+                }
+            }
+        } catch (Exception e) {
+            logger.warn("Failed to convert {} to double: {}", obj, e.getMessage());
+        }
+
+        return 0.0;
     }
 
     // Helper methods for DTO conversion
